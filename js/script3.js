@@ -62,14 +62,25 @@ while (ar.length < 84 && includesss(utenteN, arrayNumGen) != true){
 
   var utenteN = parseInt(prompt('inserisci un numero tra 1 e 100'));
   var incluso1 = includesss(utenteN, ar);
-  if (incluso1 != true && includesss(utenteN, arrayNumGen) != true && (utenteN > 0 && utenteN < 100)) {
+  if (incluso1 != true && includesss(utenteN, arrayNumGen) != true && (utenteN > 0 && utenteN < 100) && isInRange(1, 100, utenteN) == true) {
     ar.push(utenteN);
     console.log(utenteN);
     // esci = true;
+    punti++;
   }
-  punti++;
   console.log(includesss(utenteN, arrayNumGen));
 
 }
 console.log(ar);
-console.log('Tuoi punti: ' + (punti - 1));
+console.log('Tuoi punti: ' + (punti));
+
+//**************************************************
+// controllare tra 1 e 100
+
+function isInRange(min, max, num) {
+
+  if(num >= min && num <= max && !isNaN(num)) {
+    return true;
+  }
+  return false;
+}
